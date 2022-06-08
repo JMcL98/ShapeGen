@@ -27,9 +27,9 @@ public class GenerateFeatures1 : IGenerateRandomFeatures
         return numPoints;
     }
 
-    public int GetSeed()
+    public int GetSeed(int max)
     {
-        return rng.Next();
+        return rng.Next(1, max);
     }
 
     public bool Aliased()
