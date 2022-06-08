@@ -2,7 +2,7 @@ namespace ShapeGen;
 
 public interface IGenerateRandomFeatures
 {
-    int GetNumShapes();
+    int GetNumShapes(int min, int max);
 
     int[] GetNumPointsPerShape(int num);
 
