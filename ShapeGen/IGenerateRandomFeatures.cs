@@ -4,7 +4,7 @@ public interface IGenerateRandomFeatures
 {
     int GetNumShapes();
 
-    int[] GetNumPointsPerShape();
+    int[] GetNumPointsPerShape(int num);
 
     int GetSeed();
     

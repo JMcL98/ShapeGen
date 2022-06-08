@@ -16,15 +16,10 @@ public class GenerateFeatures1 : IGenerateRandomFeatures
         return NumShapes;
     }
 
-    public int[] GetNumPointsPerShape()
+    public int[] GetNumPointsPerShape(int num)
     {
-        if (NumShapes == -1)
-        {
-            throw new Exception("Please initialise number of shapes first");
-        }
-
-        var numPoints = new int[NumShapes];
-        for (var i = 0; i < NumShapes; i++)
+        var numPoints = new int[num];
+        for (var i = 0; i < num; i++)
         {
             numPoints[i] = rng.Next(3, 10);
         }
