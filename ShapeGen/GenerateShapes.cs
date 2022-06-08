@@ -9,11 +9,11 @@ public class GenerateShapes
         _generateRandomFeatures = grf;
     }
 
-    public List<Shape> GetRandomShapes()
+    public List<Shape> GetRandomShapes(int minShapes, int maxShapes)
     {
         var shapesList = new List<Shape>();
         
-        var numShapes = _generateRandomFeatures.GetNumShapes();
+        var numShapes = _generateRandomFeatures.GetNumShapes(minShapes, maxShapes);
         var pointsPerShape = _generateRandomFeatures.GetNumPointsPerShape(numShapes);
         var newShapePoints = new List<Point>();
 
