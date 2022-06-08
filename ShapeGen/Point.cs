@@ -11,6 +11,16 @@ public class Point
         Y = y;
     }
 
+    public float GetX()
+    {
+        return X;
+    }
+    
+    public float GetY()
+    {
+        return Y;
+    }
+
     public float[] GetPoints()
     {
         return new float[] { X, Y };
