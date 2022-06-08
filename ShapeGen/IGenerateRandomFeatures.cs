@@ -6,7 +6,7 @@ public interface IGenerateRandomFeatures
 
     int[] GetNumPointsPerShape(int num);
 
-    int GetSeed();
+    int GetSeed(int max);
     
     bool Aliased();
 }
