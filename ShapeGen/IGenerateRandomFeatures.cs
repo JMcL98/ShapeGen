@@ -8,5 +8,7 @@ public interface IGenerateRandomFeatures
 
     int GetSeed(int max);
     
+    int GetSeed(int min, int max);
+    
     bool Aliased();
 }

@@ -3,6 +3,7 @@ namespace ShapeGen;
 public class GenerateShapes
 {
     private readonly IGenerateRandomFeatures _generateRandomFeatures;
+    private const int CanvasSize = 1000;
 
     public GenerateShapes(IGenerateRandomFeatures grf)
     {
@@ -20,14 +21,14 @@ public class GenerateShapes
         for (var i = 0; i < numShapes; i++)
         {
             newShapePoints.Clear();
-            var centrePoint = new Point(_generateRandomFeatures.GetSeed(10000) / 100, 
-                _generateRandomFeatures.GetSeed(10000) / 100);
-            var size = _generateRandomFeatures.GetSeed(100);
+            var radius = _generateRandomFeatures.GetSeed((int)Math.Round(0.1 * CanvasSize), (int)Math.Round(0.4 * CanvasSize));
+            var centrePoint = new Point(_generateRandomFeatures.GetSeed(radius, CanvasSize - radius), 
+                _generateRandomFeatures.GetSeed(radius, CanvasSize - radius));
 
             for (var j = 0; j < pointsPerShape[i]; j++)
             {
-                newShapePoints.Add(new Point((float)(centrePoint.GetX() + size * Math.Cos(2 * Math.PI * j / pointsPerShape[i])),
-                    (float)(centrePoint.GetY() + size * Math.Sin(2 * Math.PI * j / pointsPerShape[i])))); 
+                newShapePoints.Add(new Point((float)(centrePoint.GetX() + radius * Math.Cos(2 * Math.PI * j / pointsPerShape[i])),
+                    (float)(centrePoint.GetY() + radius * Math.Sin(2 * Math.PI * j / pointsPerShape[i])))); 
             }
             
             shapesList.Add(new Shape(newShapePoints, _generateRandomFeatures.Aliased()));
