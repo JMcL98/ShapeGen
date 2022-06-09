@@ -40,6 +40,6 @@ public class GenerateFeatures1 : IGenerateRandomFeatures
 
     public bool Aliased()
     {
-        return rng.Next(1, 2) == 1;
+        return (rng.Next(1, 3) == 1);
     }
 }

@@ -30,7 +30,7 @@ public class GenerateShapes
                     (float)(centrePoint.GetY() + size * Math.Sin(2 * Math.PI * j / pointsPerShape[i])))); 
             }
             
-            shapesList.Add(new Shape(newShapePoints));
+            shapesList.Add(new Shape(newShapePoints, _generateRandomFeatures.Aliased()));
         }
 
         return shapesList;
