@@ -2,8 +2,8 @@
 
 public class ReturnedPoint
 {
-    public decimal X;
-    public decimal Y;
+    public decimal X { get; set; }
+    public decimal Y { get; set; }
 
     public ReturnedPoint(decimal x, decimal y)
     {

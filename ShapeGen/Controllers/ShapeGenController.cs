@@ -20,34 +20,15 @@ public class ShapeGenController : ControllerBase
     public IEnumerable<ReturnedShape> Get(int min, int max)
     {
         var shapes = _shapeGen.GetRandomShapes(min, max);
-        return Enumerable.Range(1, 3).Select(index => new ReturnedShape
+        var returnedShapes = new List<ReturnedShape>();
+        foreach (var shape in shapes)
         {
-            points = shapes[index].GetAllPoints()
-        }).ToArray();
-        /*var returnedShapes = new List<ReturnedShape>();
-        var returnedPoints = new List<List<ReturnedPoint>>();
-        for (var i = 0; i < shapes.Count; i++)
-        {
-            var points = shapes[i].GetAllPoints();
-            var returnedShape = new ReturnedShape();
-            returnedPoints.Add(new List<ReturnedPoint>());
-            for (var j = 0; j < points.Count; j++)
+            returnedShapes.Add(new ReturnedShape(shape.GetAllPoints())
             {
-               returnedShape.points.Add(new ReturnedPoint((decimal)points[j].GetX(), (decimal)points[j].GetY()));
-               returnedPoints[i].Add(new ReturnedPoint((decimal)points[j].GetX(), (decimal)points[j].GetY()));
-            }
-
-            returnedShapes.Add(returnedShape);
+                Aliased = shape.GetAliased()
+            });
         }
 
-        return returnedPoints.ToArray();*/
-
-        /*return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        {
-            Date = DateTime.Now.AddDays(index),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();*/
+        return returnedShapes;
     }
 }

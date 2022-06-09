@@ -2,8 +2,8 @@ namespace ShapeGen;
 
 public class Point
 {
-    public float X;
-    public float Y;
+    private float X;
+    private float Y;
 
     public Point(float x, float y)
     {
