@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace ShapeGen.Controllers;
 
 [ApiController]
-[Route("[controller]")]
 public class ShapeGenController : ControllerBase
 {
     private readonly ILogger<ShapeGenController> _logger;
@@ -16,7 +15,8 @@ public class ShapeGenController : ControllerBase
         _shapeGen = new GenerateShapes(new GenerateFeatures1());
     }
 
-    [HttpGet(Name = "GetShapes")]
+    [HttpGet]
+    [Route("/ShapeGen")]
     public IEnumerable<ReturnedShape> Get(int min, int max)
     {
         var shapes = _shapeGen.GetRandomShapes(min, max);
