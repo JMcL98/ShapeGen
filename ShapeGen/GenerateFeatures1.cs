@@ -38,6 +38,11 @@ public class GenerateFeatures1 : IGenerateRandomFeatures
         return rng.Next(1, max);
     }
 
+    public int GetSeed(int min, int max)
+    {
+        return rng.Next(min, max);
+    }
+
     public bool Aliased()
     {
         return (rng.Next(1, 3) == 1);
